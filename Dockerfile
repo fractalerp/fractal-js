@@ -8,16 +8,6 @@ RUN \
     npm i && \
     npm run build:release
 
-# node build
-FROM node:16-alpine3.12 AS frontend-build
-
-WORKDIR /
-COPY frontend frontend
-WORKDIR /frontend
-RUN \
-    npm i && \
-    npm run build
-
 #
 # final stage:
 #
@@ -34,10 +24,6 @@ COPY --from=backend-build \
 COPY --from=backend-build \
     /backend/node_modules \
     /app/node_modules
-
-COPY --from=frontend-build \
-    /frontend/dist \
-    /app/public
 
 WORKDIR /app
 
