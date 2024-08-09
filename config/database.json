@@ -1,0 +1,10 @@
+{
+  "relational": {
+    "adapter": "mysql2",
+    "uri": "DATABASE_URI"
+  },
+  "nosql": {
+    "adapter": "mongodb",
+    "uri": "DATABASE_URI"
+  }
+}
