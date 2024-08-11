@@ -19,8 +19,9 @@ import fractaLog, { fractalLogger } from "./config/logger";
 import { csrfHandler } from "./middleware/csrf.middleware";
 import { Environments } from "./utils/constants";
 import { getJWT } from "./utils/helpers";
+import { FractalRouter } from "./routes/fractal_router";
 
-export class FractalApp {
+export class FractalJs {
   public express!: express.Application;
   public session!: express.RequestHandler;
   public server!: http.Server;
@@ -45,6 +46,8 @@ export class FractalApp {
       this.express.use(csrfHandler);
       //
       this.express.use(this.initPassport());
+      // Main app router
+      new FractalRouter(this);
 
       this.loadComponents();
 
@@ -69,6 +72,7 @@ export class FractalApp {
     this.express.enable("trust proxy");
     // set up logging
     this.express.use(morgan("combined", { stream: fractaLog.stream } as any));
+
     this.server = http.createServer(this.express);
 
     useragent(true);
@@ -210,4 +214,4 @@ export class FractalApp {
   };
 }
 
-export default new FractalApp();
+export default new FractalJs();

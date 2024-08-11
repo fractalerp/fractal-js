@@ -1,15 +1,15 @@
 import { fractalLogger } from "../../config/logger";
-import { FractalApp } from "../../index";
-import { TaskRouter } from "./config/router";
+import { FractalJs } from "../../app";
+import { TaskRouter } from "./routes/router";
 
 export class TaskComponent {
   public taskRouter!: TaskRouter;
-  public fractalApp!: FractalApp;
+  public fractalJs!: FractalJs;
 
-  constructor(fractalApp: FractalApp) {
+  constructor(fractalJs: FractalJs) {
     try {
-      this.fractalApp = fractalApp;
-      this.taskRouter = new TaskRouter(fractalApp);
+      this.fractalJs = fractalJs;
+      this.taskRouter = new TaskRouter(fractalJs);
     } catch (error) {
       fractalLogger.error(`Task Component: Failed to create component :( ", ${error}`);
     }

@@ -20,13 +20,29 @@ A component based framework for NodeJs Applications
 ## Architecture
 <img src="./architecture.png" width="500" >
 
-We are creating a structure for developing large scalable, maitanable Nodejs applications. We mash up ideas from component based architecture, MVC, Entity Framework and Repository Pattern. We want different teams to focus on creating their domain apps in the components with ease. Fractal Js comes with authentication out of the box based on JWT
+We are creating a structure for developing large scalable, maitanable Nodejs applications. We mash up ideas from component based architecture, MVC, Entity Framework and Repository Pattern. We want different teams to focus on creating their domain apps in the components with ease. 
+
+## Issues, suggestions and feature requests
+We are actively maintaining this framework, please report any issues or suggestion for improvement at https://github.com/fractalerp/fractal-js/issues
+
+## How to run the project
+Prerequisite: Install git, node package manager, webpack CLI, grunt CLI. This framework also uses fractalerp [Active Record Js](https://github.com/fractalerp/active-record-js) for defining models.
+
+1. Create the following environment variables in your node project.
+```env
+RDBMS_DATABASE_URI="mysql://DATBASE_USER:DATABASE_PASSWORD@DATABASE_HOST:DATABASE_PORT/DATABASE_DB"
+NOSQL_DATABASE_URI="mongodb://DATABASE_HOST:DATABASE_PORT/DATABASE_DB"
+NOSQL_DATABASE_ADAPTER="mongodb"
+```
+
+2. Then you can create your `nodejs` apps in the `components` folder. The projects in that folder are autoloaded at run time. See the sample `Task` project in the same folder. A proper documentation will be provided in the future. Also tools will be provided to create this structure. Refer to the github project management dashboard to see what is coming up.
+
+## 🫶 Projects using this package
+See the projects using this package in action.
+- [Fractalerp core](https://github.com/fractalerp/fractal-core)
 
 ## Issues, suggestions and feature requests
 We are actively maintaining this boilerplate, please report any issues or suggestion for improvement at https://github.com/fractalerp/fractal-js/issues
-
-## Development and contribution
-Prerequisite: Install git, node package manager, webpack CLI, grunt CLI
 
 To contribute, fork and clone.
 
@@ -50,10 +66,6 @@ Run the unit test continuously during development:
 
     > npm run test:dev
 
-Run the end to end test during development:
-
-    > npm run test:e2e:dev
-
 ## Scripts
 While developing, you will probably rely mostly on `npm start`; however, there are additional scripts at your disposal:
 
@@ -67,8 +79,8 @@ While developing, you will probably rely mostly on `npm start`; however, there a
 |`test`|Runs lint, build, unit tests with mocha and generates a coverage report|
 |`test:dev`|Runs mocha and watches for changes to re-run tests; does not generate coverage reports.|
 |`test:unit`|Runs unit tests with mocha and generates a coverage report.|
-|`build:prod`|Build app optimized for production|
-|`build:dev`|Build app optimized for debugging.|
+|`build:release`|Build app optimized for production|
+|`build:development`|Build app optimized for debugging.|
 |`lint`|Lint all `.js` files.|
 |`lint:fix`|Lint and fix all `.ts` files.|
 

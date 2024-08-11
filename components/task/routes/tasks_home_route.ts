@@ -1,11 +1,11 @@
 import { Request, Response } from "express";
-import { FractalApp } from "../../../../index";
+import { FractalJs } from "../../../app";
 
-export class TaskHome {
-  public routes = (app: FractalApp) => {
-    const authEndpoint = `${process.env.API_BASE}tasks`;
+export class TasksHomeRoute {
+  public constructor(fractalJs: FractalJs) {
+    const authEndpoint = `${process.env.API_BASE}tasks/home`;
     // GET endpoint
-    app.express.route(authEndpoint)
+    fractalJs.express.route(authEndpoint)
       // GET endpoint
       .get((_req: Request, res: Response) => {
         // Get all contacts
@@ -16,5 +16,3 @@ export class TaskHome {
       });
   };
 }
-
-export default new TaskHome();

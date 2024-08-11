@@ -2,7 +2,7 @@ import { Application, Request, Response } from "express";
 import { StatusCodes } from "http-status-codes";
 
 export class FractalHome {
-  public routes = (app: Application) => {
+  public constructor(app: Application) {
     app.route(process.env.API_BASE as string)
       // GET endpoint
       .get((_req: Request | any, res: Response) => res.status(StatusCodes.OK).json({
@@ -18,4 +18,3 @@ export class FractalHome {
   };
 }
 
-export default new FractalHome();
