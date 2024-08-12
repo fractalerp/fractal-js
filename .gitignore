@@ -14,7 +14,6 @@ yarn-error.log
 package-lock.json
 assets/certs/*
 .DS_Store
-public
 logs/*
 
 .env.dev
