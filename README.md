@@ -17,15 +17,12 @@
 # FRACTAL JS
 A component based framework for NodeJs Applications
 
-## Architecture
+## 🧩 Architecture
 <img src="./architecture.png" width="500" >
 
 We are creating a structure for developing large scalable, maitanable Nodejs applications. We mash up ideas from component based architecture, MVC, Entity Framework and Repository Pattern. We want different teams to focus on creating their domain apps in the components with ease. 
 
-## Issues, suggestions and feature requests
-We are actively maintaining this framework, please report any issues or suggestion for improvement at https://github.com/fractalerp/fractal-js/issues
-
-## How to run the project
+## ⚙️ How to run the project
 Prerequisite: Install git, node package manager, webpack CLI, grunt CLI. This framework also uses fractalerp [Active Record Js](https://github.com/fractalerp/active-record-js) for defining models.
 
 1. Create the following environment variables in your node project.
@@ -37,12 +34,14 @@ NOSQL_DATABASE_ADAPTER="mongodb"
 
 2. Then you can create your `nodejs` apps in the `components` folder. The projects in that folder are autoloaded at run time. See the sample `Task` project in the same folder. A proper documentation will be provided in the future. Also tools will be provided to create this structure. Refer to the github project management dashboard to see what is coming up.
 
-## 🫶 Projects using this package
-See the projects using this package in action.
+## 🫶 Projects using this framework
+See the projects using this framework in action.
 - [Fractalerp core](https://github.com/fractalerp/fractal-core)
 
-## Issues, suggestions and feature requests
+## 🪲 Issues, suggestions and feature requests
 We are actively maintaining this boilerplate, please report any issues or suggestion for improvement at https://github.com/fractalerp/fractal-js/issues
+
+## 👨‍💻 Development
 
 To contribute, fork and clone.
 
