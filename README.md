@@ -1,18 +1,21 @@
-[![Build Status](https://travis-ci.org/fractalerp/fractal-js.svg?branch=master)](https://travis-ci.org/fractalerp/fractal-js)
-[![Code Climate](https://img.shields.io/codeclimate/maintainability/fractalerp/fractal-js.svg?style=flat-square)](https://codeclimate.com/github/fractalerp/fractal-js)
-[![Dependency Status](https://david-dm.org/fractalerp/fractal-js.svg)](https://david-dm.org/fractalerp/fractal-js)
-[![Dev Dependency Status](https://david-dm.org/fractalerp/fractal-js.svg#info=devDependencies)](https://david-dm.org/fractalerp/fractal-js#info=devDependencies)
-[![Known Vulnerabilities](https://snyk.io/test/github/fractalerp/fractal-js.svg)](https://snyk.io/test/github/fractalerp/fractal-js)
+[![Node.js CI](https://github.com/fractalerp/fractal-js/actions/workflows/ci.yml/badge.svg)](https://github.com/fractalerp/fractal-js/actions/workflows/ci.yml)
+[![Maintainability](https://api.codeclimate.com/v1/badges/486b143d9023a951f36d/maintainability)](https://codeclimate.com/github/fractalerp/fractal-js/maintainability)
+[![Dependencies](https://img.shields.io/librariesio/release/npm/@fractalerp/fractal-js)](https://libraries.io/npm/@fractalerp%2Ffractal-js)
+[![Vulnerabilities](https://snyk.io/test/github/fractalerp/fractal-js/badge.svg)](https://snyk.io/test/github/fractalerp/fractal-js)
 ![Node 11](https://img.shields.io/badge/node-11.5.x-green.svg)
 ![Npm 6](https://img.shields.io/badge/npm-6.4.x-green.svg)
 ![Webpack 5](https://img.shields.io/badge/webpack-5.20.2-green.svg)
-[![codecov](https://codecov.io/gh/fractalerp/fractal-js/branch/master/graph/badge.svg)](https://codecov.io/gh/fractalerp/fractal-js)
-[![Coverage Status](https://coveralls.io/repos/github/fractalerp/fractal-js/badge.svg?branch=master)](https://coveralls.io/github/fractalerp/fractal-js?branch=master)
+[![codecov](https://codecov.io/gh/fractalerp/fractal-js/branch/main/graph/badge.svg)](https://codecov.io/gh/fractalerp/fractal-js)
+[![Coverage Status](https://coveralls.io/repos/github/fractalerp/fractal-js/badge.svg?branch=main)](https://coveralls.io/github/fractalerp/fractal-js?branch=main)
 [![contributions welcome](https://img.shields.io/badge/contributions-welcome-brightgreen.svg?style=flat-square)](https://github.com/fractalerp/fractal-js/issues)
 [![PRs Welcome](https://img.shields.io/badge/PRs-welcome-brightgreen.svg?style=flat-square)](http://makeapullrequest.com)
 [![code style: Tslint Latest](https://img.shields.io/badge/tslint_rules-latest-ff69b4.svg?style=flat-square)](https://github.com/buzinas/tslint-eslint-rules)
-[![FOSSA Status](https://app.fossa.io/api/projects/git%2Bgithub.com%2Fmistaguy%2Fment.svg?type=shield)](https://app.fossa.io/projects/git%2Bgithub.com%2Fmistaguy%2Fment?ref=badge_shield)
-[![Apache License, Version 2.0](https://img.shields.io/badge/License-mit-blue.svg)](http://opensource.org/licenses/MIT)
+[![FOSSA Status](https://app.fossa.io/api/projects/git%2Bgithub.com%2Ffractalerp%2Ffractal-js.svg?type=shield)](https://app.fossa.io/projects/git%2Bgithub.com%2Ffractalerp%2Ffractal-js?ref=badge_shield)
+[![MIT](https://img.shields.io/badge/mit-blue.svg)](http://opensource.org/licenses/mit)
+
+[![npm](https://nodei.co/npm/@fractalerp/fractal-js.png)](https://www.npmjs.com/package/@fractalerp/fractal-js)
+
+[![Download Status](https://img.shields.io/npm/dt/@fractalerp-fractal-js.svg)](https://www.npmjs.com/package/@fractalerp/fractal-js)
 
 # FRACTAL JS
 A component based framework for NodeJs Applications
@@ -23,7 +26,7 @@ A component based framework for NodeJs Applications
 We are creating a structure for developing large scalable, maitanable Nodejs applications. We mash up ideas from component based architecture, MVC, Entity Framework and Repository Pattern. We want different teams to focus on creating their domain apps in the components with ease. 
 
 ## ⚙️ How to run the project
-Prerequisite: Install git, node package manager, webpack CLI, grunt CLI. This framework also uses fractalerp [Active Record Js](https://github.com/fractalerp/active-record-js) for defining models.
+Prerequisite: Install git, node package manager, webpack CLI, grunt CLI. This framework also uses fractalerp [Active Record Js](https://github.com/fractalerp/fractal-js) for defining models.
 
 1. Create the following environment variables in your node project.
 ```env
