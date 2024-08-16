@@ -15,5 +15,5 @@ package-lock.json
 assets/certs/*
 .DS_Store
 logs/*
-
+.history
 .env.dev
