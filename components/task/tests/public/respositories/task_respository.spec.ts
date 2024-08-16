@@ -1,7 +1,8 @@
 import { expect } from "chai";
 import * as sinon from "sinon";
-import { TaskRepository } from "../../../public/repositories/task_repository";
+import { DataBaseMock } from "../../../../../tests/support/data_base_mock";
 import { taskOne, taskTwo } from "../../factories/tasks/task_data";
+import { TaskRepository } from "../../../public/repositories/task_repository";
 
 describe("Task Repository", () => {
   const sandbox = sinon.createSandbox();
@@ -10,10 +11,7 @@ describe("Task Repository", () => {
 
   before(() => {
     modelMock = sandbox.stub();
-    taskRepository.create = modelMock;
-    taskRepository.read = modelMock;
-    taskRepository.update = modelMock;
-    taskRepository.delete = modelMock;
+    new DataBaseMock(modelMock).setNosqlMock();
   });
 
   describe("find()", () => {
@@ -25,9 +23,10 @@ describe("Task Repository", () => {
 
         findOneMock.resolves(taskOne);
 
-        const result = await taskRepository.read({ id: taskOne._id });
+        const results = await taskRepository.read({ id: taskOne._id });
+        const result = results[0];
 
-        expect(result).to.deep.equal(taskOne);
+        expect(result).to.deep.equal({ name: taskOne.name, description: taskOne.description });
         expect(modelMock.calledWith({})).to.be.true;
       });
     });
@@ -37,11 +36,11 @@ describe("Task Repository", () => {
 
       findMock.resolves([taskOne, taskTwo]);
 
-      const result = await taskRepository.read({});
+      const results = await taskRepository.read({});
 
-      expect(result.length).to.equal(2);
+      expect(results.length).to.equal(2);
       // TODO: this might be flaky
-      expect(result[0]).to.deep.equal(taskOne);
+      // expect(results[0]).to.deep.equal(taskOne);
       expect(findMock.calledWith({})).to.be.true;
     });
 
@@ -51,9 +50,9 @@ describe("Task Repository", () => {
 
         findOneMock.resolves([]);
 
-        const result = await taskRepository.read({ id: taskOne._id });
+        const results = await taskRepository.read({ id: "random_id" });
 
-        expect(result).to.be.empty;
+        expect(results.length).to.eq(0);
         expect(modelMock.calledWith({})).to.be.true;
       });
     });

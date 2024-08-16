@@ -20,7 +20,7 @@ export class TaskRepository {
     if (dto.id) {
       const task = await TaskModel.findOne({ id: dto.id });
 
-      if (task) {
+      if (task !== undefined && task !== null && task.name) {
         return [new TaskEntity(task.name, task.description)];
       }
 
