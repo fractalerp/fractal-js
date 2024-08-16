@@ -125,7 +125,7 @@
     "@types/swig-email-templates": "^7.0.3",
     "@types/uniqid": "^5.3.4",
     "@types/useragent": "^2.3.4",
-    "@types/uuid": "^9.0.8",
+    "@types/uuid": "^10.0.0",
     "@types/winston": "^2.4.4",
     "amqp": "^0.2.7",
     "amqplib": "^0.10.3",
