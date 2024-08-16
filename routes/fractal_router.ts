@@ -4,8 +4,8 @@ import * as passport from "passport";
 import * as appRoot from "app-root-path";
 import { StatusCodes } from "http-status-codes";
 
-import { FractalHome } from "./fractal_home_route";
 import { FractalJs } from "../app";
+import { FractalHome } from "./fractal_home_route";
 
 export class FractalRouter {
   public fractalJs!: FractalJs;

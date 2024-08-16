@@ -14,8 +14,8 @@
   ],
   "slow": 75,
   "spec": [
-    "activerecord/**/*.spec.ts",
-    "app/**/*.spec.ts"
+    "components/**/*.spec.ts",
+    "tests/**/*.spec.ts"
   ],
   "timeout": 60000,
   "ui": "bdd",
