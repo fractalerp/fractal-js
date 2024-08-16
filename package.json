@@ -177,7 +177,7 @@
     "swig-email-templates": "^7.0.0",
     "uniqid": "^5.4.0",
     "useragent": "^2.3.0",
-    "uuid": "^9.0.1",
+    "uuid": "^10.0.0",
     "winston": "^3.12.0"
   }
 }
