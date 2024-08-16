@@ -130,7 +130,7 @@
     "amqp": "^0.2.7",
     "amqplib": "^0.10.3",
     "app-root-path": "^3.0.0",
-    "axios": "^1.6.7",
+    "axios": "^1.7.4",
     "base64url": "^3.0.1",
     "bcryptjs": "^2.4.3",
     "bluebird": "^3.7.2",
