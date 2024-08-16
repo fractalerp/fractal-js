@@ -8,7 +8,6 @@ import { createClient } from "redis";
 import RedisStore from "connect-redis";
 import * as session from "express-session";
 import * as cors from "cors";
-import * as NodeCache from "node-cache";
 import * as passport from "passport";
 import * as appRoot from "app-root-path";
 import helmet from "helmet";
@@ -28,7 +27,6 @@ export class FractalJs {
   public redisClient!: any;
   public redisStore!: any;
   public environment!: string;
-  public myCache = new NodeCache();
 
   constructor() {
     try {
