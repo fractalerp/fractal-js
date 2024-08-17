@@ -7,6 +7,10 @@
     "node": "16.8.0",
     "npm": "^7.21.0"
   },
+  "main": "dist/main-app.js",
+  "bin": {
+    "fjs": "./dist/cli/index.js"
+  },
   "scripts": {
     "start": "npm run dev:server",
     "watch": "nodemon --watch webpack.config.js --watch Gruntfile.js --exec grunt",
@@ -21,7 +25,7 @@
     "coverage": "NODE_ENV='test' RDBMS_DATABASE_URI='mysql://' nyc --reporter cobertura mocha --config .mocharc.dev.json",
     "lint": "eslint -c .eslintrc.js '**/*.ts'",
     "lint:fix": "npm run lint -- --fix",
-    "build": "grunt clean build",
+    "build": "grunt clean build && npm run emit",
     "build:development": "grunt development",
     "build:release": "grunt release",
     "build:test": "grunt test"

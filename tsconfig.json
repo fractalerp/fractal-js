@@ -19,11 +19,12 @@
     "strictFunctionTypes": false,
     "skipLibCheck": true,
     "target": "ES6",
-    "esModuleInterop":true
+    "esModuleInterop":true,
+    "resolveJsonModule": true,
     // "watch": false
   },
   "exclude": [
     "node_modules/",
-    "node_modules/jsdom/**/*"
+     "./dist/**/*"
   ]
 }
