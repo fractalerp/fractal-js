@@ -1,13 +1,11 @@
 const path = require("path");
-const webpack = require("webpack");
-const CopyWebpackPlugin = require("copy-webpack-plugin");
 const nodeExternals = require("webpack-node-externals");
 
 module.exports = {
     entry: "./server.ts",
     output: {
         path: path.resolve(__dirname, "dist"),
-        filename: "server.js"
+        filename: "main-app.js"
     },
     resolve: {
         extensions: [".ts", ".js"]
@@ -28,19 +26,6 @@ module.exports = {
                 loader: "ts-loader",
                 exclude: /node_modules/
             },
-            {
-                test: /\.ejs$/,
-                loader: 'ejs-loader',
-                options: {
-                    variable: 'data',
-                    interpolate: '\\{\\{(.+?)\\}\\}',
-                    evaluate: '\\[\\[(.+?)\\]\\]'
-                }
-            },
-            {
-                test: /\.html$/,
-                loader: 'html-loader'
-            }
         ]
     },
     mode: "development",

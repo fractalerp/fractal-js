@@ -93,17 +93,5 @@ module.exports = function(grunt) {
         ["checkDependencies", "clean:build", "webpack:development"]
     );
 
-    grunt.registerTask(
-        "sandbox",
-        "Compiles all the assets and copies the files to the dist directory. Minified without source mapping",
-        ["checkDependencies", "clean:build", "webpack:sandbox"]
-    );
-
-    grunt.registerTask(
-        "staging",
-        "Compiles all the assets and copies the files to the dist directory. Minified without source mapping",
-        ["checkDependencies", "clean:build", "webpack:staging"]
-    );
-
     grunt.registerTask("build", ["clean build"]);
 };
