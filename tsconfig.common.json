@@ -18,8 +18,9 @@
     "strict": true,
     "strictFunctionTypes": false,
     "skipLibCheck": false,
-    "target": "es5",
-    "watch": false
+    "target": "ES6",
+    "watch": false,
+    "esModuleInterop":true
   },
   "exclude": [
     "node_modules/"
