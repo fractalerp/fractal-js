@@ -1,0 +1,10 @@
+{
+  "rdms": {
+    "adapter": "RDMS_DATABASE_ADAPTER",
+    "uri": "RDMS_DATABASE_URI"
+  },
+  "nosql": {
+    "adapter": "NOSQL_DATABASE_ADAPTER",
+    "uri": "NOSQL_DATABASE_URI"
+  }
+}

@@ -4,7 +4,7 @@
     "declaration": false,
     "experimentalDecorators": true,
     "forceConsistentCasingInFileNames": true,
-    "module": "AMD",
+    "module": "CommonJS",
     "moduleResolution": "node",
     "noEmitOnError": true,
     "noFallthroughCasesInSwitch": true,
@@ -23,9 +23,11 @@
     "resolveJsonModule": true,
     // "watch": false
   },
-  "exclude": [
+  "include": [
+    "./cli/**/*"
+  ],
+    "exclude": [
     "node_modules/",
      "./dist/**/*",
-      "packages"
   ]
 }
