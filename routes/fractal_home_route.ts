@@ -3,7 +3,7 @@ import { StatusCodes } from "http-status-codes";
 import { version, description } from "../package.json";
 export class FractalHome {
   public constructor(app: Application) {
-    app.route("/*")
+    app.route("/")
       // GET endpoint
       .get((_req: Request | any, res: Response) => res.status(StatusCodes.OK).json({
         message: "Welcome to Fractal Js!",
