@@ -17,7 +17,7 @@ import { ExtractJwt, Strategy, StrategyOptionsWithRequest } from "passport-jwt";
 import fractaLog, { fractalLogger } from "./config/logger";
 import { csrfHandler } from "./middleware/csrf.middleware";
 import { Environments } from "./utils/constants";
-import { getJWT } from "./utils/helpers";
+import { getJWT } from "./utils/auth";
 import { FractalRouter } from "./routes/fractal_router";
 
 export class FractalJs {

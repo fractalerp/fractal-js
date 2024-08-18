@@ -1,5 +1,5 @@
 export const Environments = {
-  TEST: "TEST",
-  PRODUCTION: "PRODUCTION",
-  DEVELOPMENT: "DEVELOPMENT"
+  TEST: "test",
+  PRODUCTION: "production",
+  DEVELOPMENT: "development"
 };
