@@ -18,6 +18,7 @@
     "prod:server:start": "pm2 start ./dist/main-app.js --name fractal-app-production",
     "prod:server:stop": "pm2 stop ./dist/main-app.js",
     "emit": "tsc",
+    "emit:cli": "tsc -p ./tsconfig.cli.json",
     "pretest": "npm run lint && npm run build:test && tsc",
     "test": "NODE_ENV='test' RDBMS_DATABASE_URI='mysql://' TS_NODE_COMPILER_OPTIONS='{\"module\":\"commonjs\"}' mocha --config .mocharc.json",
     "test:dev": "NODE_ENV='test' RDBMS_DATABASE_URI='mysql://' TS_NODE_COMPILER_OPTIONS='{\"module\":\"commonjs\"}' mocha --config .mocharc.dev.json",
@@ -25,7 +26,7 @@
     "coverage": "NODE_ENV='test' RDBMS_DATABASE_URI='mysql://' nyc --reporter cobertura mocha --config .mocharc.dev.json",
     "lint": "eslint -c .eslintrc.js '**/*.ts'",
     "lint:fix": "npm run lint -- --fix",
-    "build": "grunt clean build && npm run emit",
+    "build": "grunt clean build && npm run emit && npm run emit:cli",
     "build:development": "grunt development",
     "build:release": "grunt release",
     "build:test": "grunt test"

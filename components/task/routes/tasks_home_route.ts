@@ -8,7 +8,6 @@ export class TasksHomeRoute {
     fractalJs.express.route(authEndpoint)
       // GET endpoint
       .get((_req: Request, res: Response) => {
-        // Get all contacts
         res.status(200).send({
           message: "Welcome to Fractal Task API.",
           version: "1.0.0"
