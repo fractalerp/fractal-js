@@ -4,5 +4,3 @@ build/
 /build
 .dockerignore
 Dockerfile
-Dockerfile.prod
-Dockerfile.dev
