@@ -184,19 +184,21 @@ export class FractalJs {
 
   private loadComponents = async () => {
     // Define the directory containing classes
+    const excludeDirs = [".DS_Store"];
     const classesDir = `${appRoot}/components`;
 
     // Read all files in the classes directory
-    for (const component of fs.readdirSync(classesDir)) {
-
-      import(`./components/${component}`).then(module => {
-        // Assuming each file exports a single class
-        const className = Object.keys(module)[0];
-        const importedClass = module[className];
-        new importedClass(this);
-      }).catch(err => {
-        fractalLogger.error(`Error importing component ${component}: ${err}`);
-      });
+    for (const componentName of fs.readdirSync(classesDir)) {
+      if (!excludeDirs.includes(componentName)) {
+        import(`./components/${componentName}`).then(module => {
+          // Assuming each file exports a single class
+          const className = Object.keys(module)[0];
+          const importedClass = module[className];
+          new importedClass(this);
+        }).catch((err: Error) => {
+          fractalLogger.error(`Error importing component ${componentName}: ${err.message}`);
+        });
+      }
     }
   };
 
