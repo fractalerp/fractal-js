@@ -1,0 +1,33 @@
+{
+  "compilerOptions": {
+    "baseUrl": ".",
+    "declaration": false,
+    "experimentalDecorators": true,
+    "forceConsistentCasingInFileNames": true,
+    "module": "CommonJS",
+    "moduleResolution": "node",
+    "noEmitOnError": true,
+    "noFallthroughCasesInSwitch": true,
+    "noUnusedLocals": true,
+    "noUnusedParameters": true,
+    "noLib": false,
+    "outDir": "dist/",
+    "removeComments": true,
+    "rootDir": "./",
+    "sourceMap": true,
+    "strict": true,
+    "strictFunctionTypes": false,
+    "skipLibCheck": true,
+    "target": "ES6",
+    "esModuleInterop":true,
+    "resolveJsonModule": true,
+    // "watch": false
+  },
+  "include": [
+    "./cli/**/*"
+  ],
+    "exclude": [
+    "node_modules/",
+     "./dist/**/*",
+  ]
+}

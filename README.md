@@ -26,7 +26,7 @@ A component based framework for NodeJs Applications
 We are creating a structure for developing large scalable, maitanable Nodejs applications. We mash up ideas from component based architecture, MVC, Entity Framework and Repository Pattern. We want different teams to focus on creating their domain apps in the components with ease. 
 
 ## ⚙️ How to run the project
-Prerequisite: Install git, node package manager, webpack CLI, grunt CLI. This framework also uses fractalerp [Active Record Js](https://github.com/fractalerp/fractal-js) for defining models.
+Prerequisite: Install git, node package manager, webpack CLI, grunt CLI. This framework also uses fractalerp [Active Record Js](https://github.com/fractalerp/active-record-js) for defining models.
 
 1. Create the following environment variables in your node project.
 ```env
