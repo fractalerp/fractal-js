@@ -9,13 +9,9 @@
 [![Coverage Status](https://coveralls.io/repos/github/fractalerp/fractal-js/badge.svg?branch=main)](https://coveralls.io/github/fractalerp/fractal-js?branch=main)
 [![contributions welcome](https://img.shields.io/badge/contributions-welcome-brightgreen.svg?style=flat-square)](https://github.com/fractalerp/fractal-js/issues)
 [![PRs Welcome](https://img.shields.io/badge/PRs-welcome-brightgreen.svg?style=flat-square)](http://makeapullrequest.com)
-[![code style: Tslint Latest](https://img.shields.io/badge/tslint_rules-latest-ff69b4.svg?style=flat-square)](https://github.com/buzinas/tslint-eslint-rules)
+[![code style: Eslint](https://img.shields.io/badge/eslint_rules-%5E9.9.0-ff69b4.svg?style=flat-square)](https://eslint.org)
 [![FOSSA Status](https://app.fossa.io/api/projects/git%2Bgithub.com%2Ffractalerp%2Ffractal-js.svg?type=shield)](https://app.fossa.io/projects/git%2Bgithub.com%2Ffractalerp%2Ffractal-js?ref=badge_shield)
 [![MIT](https://img.shields.io/badge/mit-blue.svg)](http://opensource.org/licenses/mit)
-
-[![npm](https://nodei.co/npm/@fractalerp/fractal-js.png)](https://www.npmjs.com/package/@fractalerp/fractal-js)
-
-[![Download Status](https://img.shields.io/npm/dt/@fractalerp-fractal-js.svg)](https://www.npmjs.com/package/@fractalerp/fractal-js)
 
 # FRACTAL JS
 A component based framework for NodeJs Applications
