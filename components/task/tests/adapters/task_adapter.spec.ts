@@ -16,7 +16,11 @@ describe("Task Adapter", () => {
 
       const result = await taskAdapter.toJson();
 
-      expect(result).to.deep.equal(JSON.stringify(taskOne));
+      expect(result).to.deep.equal(
+        JSON.stringify({
+          name: taskOne.name,
+          description: taskOne.description
+        }));
     });
   });
 });

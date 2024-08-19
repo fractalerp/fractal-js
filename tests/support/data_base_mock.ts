@@ -22,7 +22,7 @@ export class DataBaseMock {
     model.update = this.sinonStub;
     model.destroy = this.sinonStub;
     // @ts-ignore
-    this.model.sequelize?.query = this.sinonStub;
+    // this.model.sequelize?.query = this.sinonStub;
   }
 
   public setNosqlMock() {
