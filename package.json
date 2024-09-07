@@ -48,7 +48,7 @@
     "@types/express-serve-static-core": "^4.17.43",
     "@types/figlet": "^1.5.8",
     "@types/mocha": "^10.0.7",
-    "@types/node": "^22.5.1",
+    "@types/node": "^22.5.4",
     "@types/sinon": "^17.0.3",
     "@typescript-eslint/eslint-plugin": "^8.3.0",
     "@typescript-eslint/eslint-plugin-tslint": "^7.0.2",
