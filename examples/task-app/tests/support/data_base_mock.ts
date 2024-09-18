@@ -1,8 +1,8 @@
+/* eslint-disable @typescript-eslint/no-explicit-any */
 import * as sinon from "sinon";
 import * as mongoose from "mongoose";
 import { Sequelize } from "sequelize";
 import { SchemaProperty } from "@fractalerp/active-record-js/dist/lib/schema_property";
-
 
 export class DataBaseMock {
   private sequelize!: Sequelize;
@@ -14,14 +14,14 @@ export class DataBaseMock {
   }
 
   public setRdmsMock(modelName: string, schema: SchemaProperty) {
-    // @ts-ignore
+    // @ts-expect-error schema compatibility
     const model = this.sequelize.define(modelName, schema);
     model.findOne = this.sinonStub;
     model.findAll = this.sinonStub;
     model.create = this.sinonStub;
     model.update = this.sinonStub;
     model.destroy = this.sinonStub;
-    // @ts-ignore
+    // @ts-expect-error schema compatibility
     this.model.sequelize?.query = this.sinonStub;
   }
 

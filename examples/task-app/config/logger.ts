@@ -42,7 +42,8 @@ export const fractalLogger: winston.Logger = winston.createLogger({
 export class FractalLogger {
   // create a stream object with a 'write' function that will be used by `morgan`
   stream = {
-    write: (message: any, _encoding: any) => {
+    // eslint-disable-next-line @typescript-eslint/no-unused-vars
+    write: (message: unknown, _encoding: unknown) => {
       // use the 'info' log level so the output will be picked up by both transports (file and console)
       fractalLogger.info(message);
     }

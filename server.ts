@@ -9,7 +9,7 @@ app.server.listen(port, () => {
 
   fractalLogger.info(`Fractal Js server listening on port ${port}.\nEnvironment: ${process.env.NODE_ENV}`);
 
-}).on("error", (err: any) => {
+}).on("error", (err: unknown) => {
 
   fractalLogger.error(err);
 

@@ -1,3 +1,4 @@
+/* eslint-disable @typescript-eslint/no-explicit-any */
 import * as sinon from "sinon";
 import * as mongoose from "mongoose";
 import { Sequelize } from "sequelize";
@@ -14,14 +15,14 @@ export class DataBaseMock {
   }
 
   public setRdmsMock(modelName: string, schema: SchemaProperty) {
-    // @ts-ignore
+    // @ts-expect-error mock
     const model = this.sequelize.define(modelName, schema);
     model.findOne = this.sinonStub;
     model.findAll = this.sinonStub;
     model.create = this.sinonStub;
     model.update = this.sinonStub;
     model.destroy = this.sinonStub;
-    // @ts-ignore
+    // @ts-expect-error mock
     this.model.sequelize?.query = this.sinonStub;
   }
 

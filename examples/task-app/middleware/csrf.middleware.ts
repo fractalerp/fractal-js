@@ -2,6 +2,7 @@ import { NextFunction, Request, Response } from "express";
 import { StatusCodes } from "http-status-codes";
 
 export const csrfHandler = (
+  // eslint-disable-next-line @typescript-eslint/no-explicit-any
   error: any,
   _request: Request,
   _response: Response,

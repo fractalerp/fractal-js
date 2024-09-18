@@ -1,3 +1,4 @@
+/* eslint-disable @typescript-eslint/no-explicit-any */
 import http from "http";
 import fs from "fs";
 import express from "express";
@@ -78,7 +79,6 @@ export class FractalJs {
     this.handleUncaughtExceptions();
   }
 
-  // @ts-ignore
   private setUpHelment() {
     this.express.use(helmet({
       referrerPolicy: { policy: "same-origin" },

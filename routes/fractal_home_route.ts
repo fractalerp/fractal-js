@@ -5,7 +5,7 @@ export class FractalHome {
   public constructor(app: Application) {
     app.route("/")
       // GET endpoint
-      .get((_req: Request | any, res: Response) => res.status(StatusCodes.OK).json({
+      .get((_req: Request, res: Response) => res.status(StatusCodes.OK).json({
         message: "Welcome to Fractal Js!",
         description,
         version

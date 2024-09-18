@@ -1,4 +1,4 @@
-
+/* eslint-disable @typescript-eslint/no-explicit-any */
 import { Request, Response } from "express";
 import { NextFunction } from "express-serve-static-core";
 import * as passport from "passport";
