@@ -1,3 +1,4 @@
+/* eslint-disable @typescript-eslint/no-explicit-any */
 import http from "http";
 import fs from "fs";
 import express from "express";
@@ -18,7 +19,7 @@ import fractaLog, { fractalLogger } from "./config/logger";
 import { csrfHandler } from "./middleware/csrf.middleware";
 import { Environments } from "./utils/constants";
 import { getJWT } from "./utils/auth";
-import { FractalRouter } from "./routes/fractal_router";
+import { FractalRouter } from "./routers/fractal_router";
 
 export class FractalJs {
   public express!: express.Application;
@@ -27,6 +28,7 @@ export class FractalJs {
   public redisClient!: any;
   public redisStore!: any;
   public environment!: string;
+  public routes: Record<string, object> = {};
 
   constructor() {
     try {
@@ -47,7 +49,7 @@ export class FractalJs {
       // Main app router
       new FractalRouter(this);
 
-      this.loadComponents();
+      this.loadComponentRoutes();
 
     } catch (error) {
       fractalLogger.log("error", `Fractal Core: Some weirdo error happened :( ", ${error}`);
@@ -78,7 +80,6 @@ export class FractalJs {
     this.handleUncaughtExceptions();
   }
 
-  // @ts-ignore
   private setUpHelment() {
     this.express.use(helmet({
       referrerPolicy: { policy: "same-origin" },
@@ -179,25 +180,29 @@ export class FractalJs {
   }
 
   /**
-   * Auto loads component apps
+   * Auto loads component routers
    */
 
-  private loadComponents = async () => {
+  private loadComponentRoutes = async () => {
     // Define the directory containing classes
-    const excludeDirs = [".DS_Store"];
+    const excludeDirs = [".DS_Store", ".history"];
     const classesDir = `${appRoot}/components`;
 
     // Read all files in the classes directory
     for (const componentName of fs.readdirSync(classesDir)) {
       if (!excludeDirs.includes(componentName)) {
-        import(`./components/${componentName}`).then(module => {
-          // Assuming each file exports a single class
-          const className = Object.keys(module)[0];
-          const importedClass = module[className];
-          new importedClass(this);
-        }).catch((err: Error) => {
+        try {
+          for (const routeName of fs.readdirSync(`${classesDir}/${componentName}/routers`)) {
+            // Assuming each file exports a single class
+            const route = await import(`./components/${componentName}/routers/${routeName}`);
+            const className = Object.keys(route)[0];
+            const importedClass = route[className];
+            this.routes[className] = new importedClass(this);
+            // fractalLogger.info({ routes: this.routes, className, importedClass });
+          }
+        } catch (err: any) {
           fractalLogger.error(`Error importing component ${componentName}: ${err.message}`);
-        });
+        };
       }
     }
   };
