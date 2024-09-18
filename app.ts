@@ -197,8 +197,7 @@ export class FractalJs {
             const route = await import(`./components/${componentName}/routers/${routeName}`);
             const className = Object.keys(route)[0];
             const importedClass = route[className];
-            this.routes[className] = new importedClass(this);
-            // fractalLogger.info({ routes: this.routes, className, importedClass });
+            this.routes[`${componentName}.${className}`] = new importedClass(this);
           }
         } catch (err: any) {
           fractalLogger.error(`Error importing component ${componentName}: ${err.message}`);
