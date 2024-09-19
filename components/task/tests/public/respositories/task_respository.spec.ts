@@ -4,6 +4,8 @@ import * as sinon from "sinon";
 import { DataBaseMock } from "../../../../../tests/support/data_base_mock";
 import { taskOne, taskTwo } from "../../factories/tasks/task_data";
 import { TaskRepository } from "../../../public/repositories/task_repository";
+import { TaskMapper } from "../../../public/mappers/task_mapper";
+import { TaskModel } from "../../../../task/models/task_model";
 
 describe("Task Repository", () => {
   const sandbox = sinon.createSandbox();
@@ -13,6 +15,10 @@ describe("Task Repository", () => {
   before(() => {
     modelMock = sandbox.stub();
     new DataBaseMock(modelMock).setNosqlMock();
+
+    taskRepository
+      .setMapper(new TaskMapper())
+      .setModel(TaskModel);
   });
 
   describe("find()", () => {
@@ -24,8 +30,9 @@ describe("Task Repository", () => {
 
         findOneMock.resolves(taskOne);
 
-        const results = await taskRepository.read({ id: taskOne._id });
-        const result = results[0];
+        taskRepository.setReadDto({ id: taskOne._id });
+        const results = await taskRepository.read();
+        const result = results && results[0];
 
         expect(result).to.deep.equal({ name: taskOne.name, description: taskOne.description });
         // expect(modelMock.calledWith({})).to.be.true;
@@ -37,9 +44,10 @@ describe("Task Repository", () => {
 
       findMock.resolves([taskOne, taskTwo]);
 
-      const results = await taskRepository.read({});
+      taskRepository.setReadDto({});
+      const results = await taskRepository.read();
 
-      expect(results.length).to.equal(2);
+      expect(results?.length).to.equal(2);
       // TODO: this might be flaky
       // expect(results[0]).to.deep.equal(taskOne);
       // expect(findMock.calledWith({})).to.be.true;
@@ -51,9 +59,12 @@ describe("Task Repository", () => {
 
         findOneMock.resolves([]);
 
-        const results = await taskRepository.read({ id: "random_id" });
+        taskRepository.setReadDto({ id: "random_id" });
+        const results = await taskRepository.read();
 
-        expect(results.length).to.eq(0);
+        console.log(results)
+
+        expect(results?.length).to.eq(0);
         // expect(modelMock.calledWith({})).to.be.true;
       });
     });
@@ -65,10 +76,11 @@ describe("Task Repository", () => {
 
     createMock.resolves(taskOne);
 
-    const result = await taskRepository.create({
+    taskRepository.setCreateDto({
       name: taskOne.name,
       description: taskOne.description
     });
+    const result = await taskRepository.create();
 
     expect(result).to.deep.equal(taskOne);
   });
@@ -77,11 +89,13 @@ describe("Task Repository", () => {
     const updateMock = modelMock.returns(Promise.resolve(taskTwo));
     updateMock.resolves(taskTwo);
 
-    const result = await taskRepository.update({
+    taskRepository.setUpdateDto({
       id: taskOne._id,
       name: taskTwo.name,
       description: taskTwo.description
-    });
+    })
+
+    const result = await taskRepository.update();
 
     expect({
       name: result.name,
@@ -95,10 +109,12 @@ describe("Task Repository", () => {
   it("should delete a task", async () => {
     const deleteMock = modelMock.returns(Promise.resolve(undefined));
 
-    deleteMock.resolves(undefined);
-    const result = await taskRepository.delete({ id: taskOne._id });
+    deleteMock.resolves(null);
+    taskRepository.setDeleteDto({ id: taskOne._id });
 
-    expect(result).to.equal(undefined);
+    const result = await taskRepository.delete();
+
+    expect(result).to.equal(null);
   });
 
   // Tear down
