@@ -117,7 +117,7 @@
     "passport": "^0.7.0",
     "passport-jwt": "^4.0.0",
     "redis": "^4.6.13",
-    "sequelize": "^6.37.3",
+    "sequelize": "^6.37.4",
     "ts-loader": "^9.5.1",
     "useragent": "^2.3.0",
     "winston": "^3.12.0"
