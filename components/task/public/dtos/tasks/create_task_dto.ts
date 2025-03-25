@@ -1,4 +1,4 @@
-export interface CreateDto {
+export interface CreateTaskDto {
   name: string;
   description: string;
 }

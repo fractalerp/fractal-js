@@ -1,4 +1,4 @@
-export interface ReadDto {
+export interface ReadTaskDto {
   id?: string | number;
   name?: string;
 }
