@@ -6,7 +6,6 @@ import bodyParser from "body-parser";
 import dotenv from "dotenv";
 import morgan from "morgan";
 import { createClient } from "redis";
-import RedisStore from "connect-redis";
 import session from "express-session";
 import cors from "cors";
 import passport from "passport";
@@ -157,10 +156,6 @@ export class FractalJs {
       .catch(() => {
         fractalLogger.error("Failed to connect to redis client");
       });
-    this.redisStore = new RedisStore({
-      client: this.redisClient,
-      prefix: "fractal"
-    });
 
   }
 

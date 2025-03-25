@@ -4,10 +4,10 @@ import { TaskAdapter } from "./../../../../components/task/adapters/task_adapter
 import { TaskEntity } from "./../../../../components/task/public/entities/task_entity";
 
 describe("Task Adapter", () => {
-  const taskEntity: TaskEntity = new TaskEntity(
-    taskOne.name,
-    taskOne.description
-  );
+  const taskEntity: TaskEntity = {
+    name: taskOne.name,
+    description: taskOne.description
+  };
   const taskAdapter: TaskAdapter = new TaskAdapter(taskEntity);
 
   context("toJson()", async () => {
@@ -17,10 +17,10 @@ describe("Task Adapter", () => {
       const result = await taskAdapter.toJson();
 
       expect(result).to.deep.equal(
-        JSON.stringify({
+        {
           name: taskOne.name,
           description: taskOne.description
-        }));
+        });
     });
   });
 });

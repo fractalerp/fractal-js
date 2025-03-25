@@ -7,5 +7,5 @@ export class TaskAdapter {
     this.taskEntity = taskEntity;
   }
 
-  toJson = () => JSON.stringify(this.taskEntity);
+  toJson = () => this.taskEntity;
 }

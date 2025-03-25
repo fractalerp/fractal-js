@@ -4,10 +4,10 @@ import { TaskMapper } from "./../../../../components/task/public/mappers/task_ma
 import { TaskEntity } from "./../../../../components/task/public/entities/task_entity";
 
 describe("Task Mapper", () => {
-  const taskEntity: TaskEntity = new TaskEntity(
-    taskOne.name,
-    taskOne.description
-  );
+  const taskEntity: TaskEntity = {
+    name: taskOne.name,
+    description: taskOne.description
+  };
   const taskMapper: TaskMapper = new TaskMapper();
 
   context("fromModel()", async () => {
